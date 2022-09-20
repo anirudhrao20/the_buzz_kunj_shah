@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../home.dart';
 
 class Tabbar extends StatefulWidget {
+  static const String id = 'tabbar';
   const Tabbar({Key? key}) : super(key: key);
 
   @override

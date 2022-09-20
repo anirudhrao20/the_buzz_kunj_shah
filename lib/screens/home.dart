@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../model/post.dart';
 import 'model/post_block.dart';
+import 'new_post.dart';
 
 class HomeScreen extends StatefulWidget {
+  static const String id = 'home';
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -11,7 +13,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   String getMonth() {
     if (DateTime.now().month == 1) {
       return "January";
@@ -48,8 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
     if (DateTime.now().month == 12) {
       return "December";
-    }
-    else {
+    } else {
       return "Null";
     }
   }
@@ -93,9 +93,17 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                           const SizedBox(width: 200.0),
-                          const Icon(
-                            Icons.add,
-                            size: 30.0,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const NewPost()));
+                            },
+                            child: const Icon(
+                              Icons.add,
+                              size: 30.0,
+                            ),
                           ),
                         ],
                       ),
@@ -103,9 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       const Text(
                         "My Feed",
                         style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w700
-                        ),
+                            fontSize: 16.0, fontWeight: FontWeight.w700),
                       ),
                       const SizedBox(height: 18.0),
                     ],

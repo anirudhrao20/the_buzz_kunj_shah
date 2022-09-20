@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_buzz/screens/home.dart';
 import 'package:the_buzz/screens/model/tabbar.dart';
+import 'package:the_buzz/screens/new_post.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Tabbar(),
+      home: MaterialApp(
+        initialRoute: Tabbar.id,
+        routes: {
+          Tabbar.id: (context) => const Tabbar(),
+          HomeScreen.id: (context) => const HomeScreen(),
+          NewPost.id: (context) => const NewPost(),
+        },
+      ),
     );
   }
 }
